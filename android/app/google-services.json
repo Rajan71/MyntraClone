@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "918986160827",
+    "project_id": "myntraclone-6a88d",
+    "storage_bucket": "myntraclone-6a88d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918986160827:android:a68bd608a3f63fb2aec79e",
+        "android_client_info": {
+          "package_name": "com.myntraclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918986160827-r731jjj3f15kigtqq6v1fgj43teufdbr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAye8vGzMPLNbDoc8Vo-Kp29tgKbT__R_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918986160827-r731jjj3f15kigtqq6v1fgj43teufdbr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "918986160827-4rh5ht0m49t82d7pjj10n2atbgfrfcs9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.MyntraClone"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
