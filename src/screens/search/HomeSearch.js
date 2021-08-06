@@ -234,13 +234,16 @@ const HomeSearch = ({ navigation }) => {
 
                     <View style={{
                         width: Vw, alignItems: 'center',
-                        marginTop: 15
+                        marginTop: 15,
                     }}>
                         <View style={{
-                            width: Vw * 0.9, height: Vw * 0.1, justifyContent: 'center',
+                            width: Vw, height: Vw * 0.1, justifyContent: 'center',
                             alignItems: 'flex-start', backgroundColor: Color.White
                         }}>
-                            <Text style={{ color: Color.Black, fontSize: 15 }}>POPULAR ON MYNTRA</Text>
+                            <Text style={{
+                                color: Color.Black, fontSize: 15,
+                                paddingLeft: 20
+                            }}>POPULAR ON MYNTRA</Text>
                         </View>
                         <StripBox icon={<Avatar
                             rounded

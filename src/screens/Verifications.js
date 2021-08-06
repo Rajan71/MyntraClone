@@ -8,6 +8,7 @@ import {
 import { Color, Vw, Vh } from '../helper';
 import { Header } from '../components';
 
+
 const NumberInput = (props) => {
 
     return (
@@ -43,12 +44,8 @@ const Verification = (props) => {
     const ref4 = useRef()
     const ref5 = useRef()
     const ref6 = useRef()
-    // const [confirmation, setConfirmation] = useState()
 
     let secretCode = otp + otp1 + otp2 + otp3 + otp4 + otp5
-
-
-
 
     useEffect(() => {
 
@@ -100,8 +97,8 @@ const Verification = (props) => {
                                 onChangeText={setOtp}
                                 textAlign='center'
                                 maxLength={1}
-                                // inputRef={ref1}
-                                // onSubmitEditing={() => ref2.current.focus()}
+                                inputRef={ref1}
+                                onSubmitEditing={() => ref2.current.focus()}
                                 returnKeyType="next"
                             />
                             <NumberInput
@@ -110,8 +107,8 @@ const Verification = (props) => {
                                 onChangeText={setOtp1}
                                 textAlign='center'
                                 maxLength={1}
-                                // inputRef={ref2}
-                                // onSubmitEditing={() => ref3.current.focus()}
+                                inputRef={ref2}
+                                onSubmitEditing={() => ref3.current.focus()}
                                 returnKeyType="next"
                             />
                             <NumberInput
@@ -120,8 +117,8 @@ const Verification = (props) => {
                                 onChangeText={setOtp2}
                                 textAlign='center'
                                 maxLength={1}
-                                // inputRef={ref3}
-                                // onSubmitEditing={() => ref4.current.focus()}
+                                inputRef={ref3}
+                                onSubmitEditing={() => ref4.current.focus()}
                                 returnKeyType="next"
                             />
                             <NumberInput
@@ -130,8 +127,8 @@ const Verification = (props) => {
                                 onChangeText={setOtp3}
                                 textAlign='center'
                                 maxLength={1}
-                                // inputRef={ref4}
-                                // onSubmitEditing={() => ref5.current.focus()}
+                                inputRef={ref4}
+                                onSubmitEditing={() => ref5.current.focus()}
                                 returnKeyType="next"
                             />
                             <NumberInput
@@ -140,8 +137,8 @@ const Verification = (props) => {
                                 onChangeText={setOtp4}
                                 textAlign='center'
                                 maxLength={1}
-                                // inputRef={ref5}
-                                // onSubmitEditing={() => ref6.current.focus()}
+                                inputRef={ref5}
+                                onSubmitEditing={() => ref6.current.focus()}
                                 returnKeyType="next"
                             />
                             <NumberInput
@@ -150,7 +147,7 @@ const Verification = (props) => {
                                 onChangeText={setOtp5}
                                 textAlign='center'
                                 maxLength={1}
-                                // inputRef={ref6}
+                                inputRef={ref6}
                                 onSubmitEditing={() => confirmCode()}
                                 returnKeyType="done"
                             />

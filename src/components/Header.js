@@ -11,11 +11,12 @@ import { Color, Vw, Vh } from '../helper';
 import In from "react-native-vector-icons/AntDesign";
 import Ion from 'react-native-vector-icons/SimpleLineIcons';
 import { useSelector } from "react-redux";
+import Login from '../screens/Login';
 
 
 const Header = ({ navigation, icon, title, icon2, icon3, icon1, title1, }) => {
     const { cartItems } = useSelector(state => state.UpdateCartReducer)
-
+    const [visible, setVisible] = useState(false)
     return (
         <View style={{
             height: Vh * 0.06, width: Vw, backgroundColor: Color.White,
@@ -48,7 +49,7 @@ const Header = ({ navigation, icon, title, icon2, icon3, icon1, title1, }) => {
                     <TouchableOpacity>
                         <In name={icon3} size={20} />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => setVisible(true)}>
                         <In name={icon2} size={20} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('AddToBag')}>
@@ -64,6 +65,8 @@ const Header = ({ navigation, icon, title, icon2, icon3, icon1, title1, }) => {
 
                     </TouchableOpacity>
                 </View>
+                <Login
+                    visible={visible} setVisible={setVisible} navigation={navigation} />
             </View>
         </View>
     )

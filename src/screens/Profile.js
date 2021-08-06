@@ -12,7 +12,7 @@ import In from "react-native-vector-icons/AntDesign";
 import { Strip, HeaderBar } from './Explore';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Login from './Login';
-
+import { useDispatch, useSelector } from "react-redux";
 
 
 
@@ -24,7 +24,7 @@ export const StripBox = (props) => {
                 height: Vh * 0.08, width: Vw, flexDirection: 'row', alignItems: 'center',
                 backgroundColor: Color.White, marginTop: 2
             }}>
-                <View style={{ paddingLeft: 10, }}>
+                <View style={{ paddingLeft: 10 }}>
                     {props.icon}
                 </View>
                 <View style={{
@@ -46,6 +46,7 @@ export const StripBox = (props) => {
 
 const Profile = (props) => {
     const [visible, setVisible] = useState(false)
+    const { imageUrl } = useSelector(state => state.ProfilePicReducer)
 
     const Terms = (props) => {
         return (
@@ -80,9 +81,11 @@ const Profile = (props) => {
                             position: 'absolute', bottom: 20, alignItems: 'center', justifyContent: 'center',
                         }}>
                             <TouchableOpacity onPress={() => props.navigation.navigate('UserProfile')}>
+                                {imageUrl != null ? <Image source={{ uri: imageUrl }}
+                                    style={{ width: Vw * 0.22, height: Vw * 0.2 }} /> :
+                                    <Image source={require('../assests/images/common/userpic.png')}
+                                        style={{ width: Vw * 0.22, height: Vw * 0.2 }} />}
 
-                                <Image source={require('../assests/images/common/userpic.png')}
-                                    style={{ width: Vw * 0.22, height: Vw * 0.2 }} />
                             </TouchableOpacity>
                         </View>
                         <TouchableOpacity onPress={() => setVisible(true)}>

@@ -34,9 +34,9 @@ const UserProfile = (props) => {
 
     const saveProfilePic = () => {
         let obj = {
-            profilePic: pic
+            imageUrl: pic
         }
-        if (profilePic = null) {
+        if (imageUrl = null) {
             alert('Error try again')
             console.log('image not found')
         }
@@ -125,7 +125,7 @@ const UserProfile = (props) => {
                         }}>
                             <TouchableOpacity onPress={() => Diloge()}>
                                 {pic != null ? <Image source={{ uri: pic }}
-                                    style={{ width: Vw * 0.22, height: Vw * 0.2 }} /> :
+                                    style={{ width: Vw * 0.3, height: Vw * 0.3 }} /> :
                                     <Image source={require('../../assests/images/common/userpic.png')}
                                         style={{ width: Vw * 0.22, height: Vw * 0.2 }} />}
                             </TouchableOpacity>
