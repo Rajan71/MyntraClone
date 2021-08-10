@@ -84,6 +84,8 @@ const LingData = [
 
 
 const ProductDetail = (props) => {
+    const { cartItems } = useSelector(state => state.UpdateCartReducer)
+
     const [pin, setPin] = useState('')
     const { key } = props.route.params;
     const [size, setSize] = useState([])
@@ -191,11 +193,11 @@ const ProductDetail = (props) => {
                 <View style={{
                     justifyContent: 'center', alignItems: 'center',
                     borderColor: Color.Black, borderWidth: 1,
-                    borderRadius: 20, padding: 10, height: 35,
+                    borderRadius: 20, height: 35, minWidth: 35,
                     marginTop: 30, marginLeft: 10,
                     backgroundColor: size.indexOf(index) > -1 ? Color.btnColor : Color.White
                 }}>
-                    <Text style={{ fontWeight: 'bold' }}>{item.size}</Text>
+                    <Text style={{ fontWeight: 'bold', }}>{item.size}</Text>
                 </View>
             </TouchableOpacity>
         )
@@ -203,7 +205,7 @@ const ProductDetail = (props) => {
     const detailRen = ({ item, index }) => {
         return (
             <View style={{
-                width: Vw, height: Vh * 0.5,
+                width: Vw, height: '40%',
                 alignItems: 'flex-start',
                 backgroundColor: Color.White
             }}>
@@ -212,13 +214,16 @@ const ProductDetail = (props) => {
                     resizeMode="stretch">
 
                 </ImageBackground>
-                <View style={{ justifyContent: 'center', alignItems: 'flex-start', width: Vw, height: Vh * 0.1, }}>
+                <View style={{
+                    justifyContent: 'center', alignItems: 'flex-start', width: Vw, height: '58%',
+                    backgroundColor: Color.White
+                }}>
                     <Text style={{ fontWeight: "bold", marginTop: 10, paddingLeft: 10 }}>Jockey <Text style={{ fontWeight: "normal", }}>COMFORT PLUS Men White</Text></Text>
                     <Text style={{ fontWeight: "normal", paddingLeft: 10 }}>{item.detail.desc} </Text>
                     <Text style={{ fontWeight: "bold", paddingLeft: 10, marginTop: 5 }}>₹ 398</Text>
                     <Text style={{
                         fontWeight: "bold", paddingLeft: 10, color: 'green',
-                        fontSize: 12
+                        fontSize: 12,
                     }}>inclusive of all taxes</Text>
                 </View>
             </View>
@@ -236,7 +241,7 @@ const ProductDetail = (props) => {
                     icon2='hearto'
                     icon1='handbag' />
                 <ScrollView>
-                    <View style={{ width: Vw, height: Vh * 0.5, }}>
+                    <View style={{ width: Vw, flex: 1, }}>
                         <List
                             horizontal
                             data={gridData}
@@ -300,7 +305,7 @@ const ProductDetail = (props) => {
                             }}
                                 onPress={() => { upadteCart(); updateItems() }}>
                                 <Ion name='handbag' size={20} style={{ paddingRight: 10 }} color={Color.White} />
-                                <Text style={{ fontWeight: 'bold', color: Color.White }}>ADD TO BAG</Text>
+                                <Text style={{ fontWeight: 'bold', color: Color.White }}>{cartItems != "" ? "GO TO BAG" : "ADD TO BAG"}</Text>
 
                             </TouchableOpacity>
 
@@ -344,7 +349,7 @@ const ProductDetail = (props) => {
                         <Text style={{ paddingLeft: 10, marginTop: 5, marginBottom: 10 }}>Machine-wash</Text>
                     </View>
                     <View style={{
-                        width: Vw, height: Vh * 0.16, backgroundColor: Color.White,
+                        width: Vw, height: '8%', backgroundColor: Color.White,
                         alignItems: 'flex-start', marginTop: 15
                     }}>
                         <Text style={{
@@ -397,7 +402,7 @@ const ProductDetail = (props) => {
                             }} />
                     </View>
                     <View style={{
-                        width: Vw, height: Vh * 0.2, backgroundColor: Color.White,
+                        width: Vw, height: '10%', backgroundColor: Color.White,
                         alignItems: 'flex-start', marginTop: 15
                     }}>
                         <Text style={{ paddingLeft: 10, marginTop: 10, fontWeight: 'bold' }}>More Information</Text>
@@ -407,7 +412,10 @@ const ProductDetail = (props) => {
                         <Text style={{ paddingLeft: 10, marginTop: 15, fontWeight: 'bold', fontSize: 13 }}>Country of Origin</Text>
                         <Text style={{ paddingLeft: 10, marginTop: 5 }}>India</Text>
                     </View>
-                    <View style={{ width: Vw, height: Vh * 0.1, alignItems: 'center', justifyContent: 'center' }}>
+                    <View style={{
+                        width: Vw, height: '3%', alignItems: 'center', justifyContent: 'center',
+
+                    }}>
                         <Text style={{ marginTop: 10 }}>~~</Text>
                         <Text style={{ marginTop: 5, fontSize: 12 }}>"Style is a way to say who you are without having to speak."</Text>
                         <Text style={{ marginTop: 5, fontSize: 12 }}>Rachel Zoe</Text>

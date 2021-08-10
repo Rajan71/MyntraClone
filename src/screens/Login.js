@@ -33,15 +33,17 @@ const Login = ({ visible, setVisible, navigation }) => {
     }
 
     const phoneSignIn = async () => {
-        const confirmation = await auth().signInWithPhoneNumber(num);
-        console.log('---Conf---', confirmation)
-        if (confirmation._auth._authResult) {
-            console.log('===>>>', confirmation)
-            navigation('Verification', { otpConfirm: confirmation })
-        }
-        else {
-            alert('internal error')
-        }
+        try {
+            const confirmation = await auth().signInWithPhoneNumber(num);
+            console.log('---Conf---', confirmation)
+            if (confirmation._auth._authResult) {
+                console.log('===>>>', confirmation)
+                navigation('Verification', { otpConfirm: confirmation })
+            }
+            else {
+                alert('internal error')
+            }
+        } catch (error) { console.log(error) }
         // setConfirm(confirmation);
         // alert(num)
     }

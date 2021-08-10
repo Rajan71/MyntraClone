@@ -25,6 +25,8 @@ const NumberInput = (props) => {
             onSubmitEditing={props.onSubmitEditing}
             returnKeyType={props.returnKeyType}
             ref={props.inputRef}
+            keyboardType={props.keyboardType}
+
         />
     )
 }
@@ -100,6 +102,7 @@ const Verification = (props) => {
                                 inputRef={ref1}
                                 onSubmitEditing={() => ref2.current.focus()}
                                 returnKeyType="next"
+                                keyboardType="numeric"
                             />
                             <NumberInput
                                 placeholder=''
@@ -110,6 +113,7 @@ const Verification = (props) => {
                                 inputRef={ref2}
                                 onSubmitEditing={() => ref3.current.focus()}
                                 returnKeyType="next"
+                                keyboardType="numeric"
                             />
                             <NumberInput
                                 placeholder=''
@@ -120,6 +124,7 @@ const Verification = (props) => {
                                 inputRef={ref3}
                                 onSubmitEditing={() => ref4.current.focus()}
                                 returnKeyType="next"
+                                keyboardType="numeric"
                             />
                             <NumberInput
                                 placeholder=''
@@ -130,6 +135,7 @@ const Verification = (props) => {
                                 inputRef={ref4}
                                 onSubmitEditing={() => ref5.current.focus()}
                                 returnKeyType="next"
+                                keyboardType="numeric"
                             />
                             <NumberInput
                                 placeholder=''
@@ -140,6 +146,7 @@ const Verification = (props) => {
                                 inputRef={ref5}
                                 onSubmitEditing={() => ref6.current.focus()}
                                 returnKeyType="next"
+                                keyboardType="numeric"
                             />
                             <NumberInput
                                 placeholder=''
@@ -150,6 +157,7 @@ const Verification = (props) => {
                                 inputRef={ref6}
                                 onSubmitEditing={() => confirmCode()}
                                 returnKeyType="done"
+                                keyboardType="numeric"
                             />
                         </View>
                         <VerifiyText

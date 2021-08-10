@@ -85,7 +85,7 @@ const HelpCenter = (props) => {
 
                     </View>
                     <View style={{
-                        width: Vw, height: Vh * 0.15, backgroundColor: Color.White,
+                        width: Vw, height: '20%', backgroundColor: Color.White,
                         marginTop: 10, alignItems: 'center', justifyContent: 'center'
 
                     }}>
@@ -100,7 +100,8 @@ const HelpCenter = (props) => {
                         <TouchableOpacity style={{
                             width: Vw * 0.9, height: Vh * 0.05, borderColor: Color.Gray, borderWidth: 1,
                             alignItems: 'center', justifyContent: 'center', marginTop: 15
-                        }}>
+                        }}
+                            onPress={() => props.navigation.navigate('BottomTab')}>
                             <Text style={{ fontWeight: 'bold' }}>
                                 START SHOPPING
                             </Text>

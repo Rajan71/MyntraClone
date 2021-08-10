@@ -1,6 +1,6 @@
 import MainScreenHeader from "./MainScreenHeader";
 import List from './List'
-import { avtarData, colors, beauty, fashion, excData } from './data/HomeScreenData'
+import { AvtarRow, SwipeList, BeautyPersonel, CategoriesBag, ExcList } from './data/HomeScreenData'
 import Header from "./Header";
 // import { renderItem, beautyRender, fashionRender, activityRender, TopPicksRen } from "./HomeRenderItems";
 import { BeautyData } from "./BeautyProductsData";
@@ -9,11 +9,11 @@ import { womenData, westernData, customData } from "./data/CategoriesData";
 export {
     MainScreenHeader,
     List,
-    avtarData,
-    colors,
-    beauty,
-    fashion,
-    excData,
+    AvtarRow,
+    SwipeList,
+    BeautyPersonel,
+    CategoriesBag,
+    ExcList,
     BeautyData,
     womenData,
     westernData,

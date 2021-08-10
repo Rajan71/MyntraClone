@@ -159,7 +159,10 @@ const Studio = () => {
     const avtarRender = ({ item }) => {
         return (
 
-            <View style={{ width: Vw * 0.3, justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{
+                width: Vw * 0.3, justifyContent: 'center', alignItems: 'center',
+
+            }}>
                 <Avatar
                     rounded
                     size={120}
@@ -206,13 +209,19 @@ const Studio = () => {
                 </View>
                 <ScrollView>
                     <View style={{
-                        height: Vh * 0.2, width: Vw, backgroundColor: Color.White,
+                        height: '6%', width: Vw, backgroundColor: Color.White,
                         marginTop: 15, alignItems: 'center', justifyContent: 'center'
                     }}>
                         <List
                             horizontal
                             data={avtarData}
-                            renderItem={avtarRender} />
+                            renderItem={avtarRender}
+                            ItemSeparatorComponent={() => {
+                                return (
+                                    <View style={{ margin: 5 }}>
+                                    </View>
+                                )
+                            }} />
                         <AtSlide id={avtarRender.id} />
                     </View>
                     <View style={{

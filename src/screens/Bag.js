@@ -5,13 +5,15 @@ import {
     TouchableOpacity,
     ImageBackground,
     SafeAreaView,
-    Alert
+    Alert,
+    TouchableHighlight
 } from 'react-native';
 import { Color, Vw, Vh } from '../helper';
 import { Header } from '../components';
 import { useDispatch, useSelector } from "react-redux";
 import Icon from "react-native-vector-icons/AntDesign";
 import { removeUpdate } from '../redux/action/action';
+import RazorpayCheckout from 'react-native-razorpay';
 
 const offersType = [
     { desc: '10% Instant Discount on ICICI Credit card up to 1000 off/-' },
@@ -25,6 +27,7 @@ const offersType = [
 
 const Bag = (props) => {
     // const { key } = props.route.params
+    const dispatch = useDispatch()
     const { image, cartItems, deleteItem } = useSelector(state => state.UpdateCartReducer)
     console.log('remove____', deleteItem)
     const availableOffers = () => {
@@ -32,7 +35,33 @@ const Bag = (props) => {
             return <Offers desc={item.desc} />
         })
     }
-    const dispatch = useDispatch()
+
+    const makePayment = () => {
+        var options = {
+            description: 'Credits towards consultation',
+            image: 'https://i.imgur.com/3g7nmJC.png',
+            currency: 'INR',
+            key: 'rzp_test_J76lJw4yD39d1w',
+            amount: '50000',
+            name: 'Myntra Clone',
+            // order_id: 'order_DslnoIgkIDL8Zt',//Replace this with an order_id created using Orders API.
+            prefill: {
+                email: 'rajan.payal@appinventiv.com',
+                contact: '9191919191',
+                name: 'Rajan Payal'
+            },
+            theme: { color: '#53a20e' }
+        }
+        RazorpayCheckout.open(options).then((data) => {
+            // handle success
+            alert(`Success: ${data.razorpay_payment_id}`);
+        }).catch((error) => {
+            // handle failure
+            alert(`Error: ${error.code} | ${error.description}`);
+        });
+    }
+
+
     const deleteCart = () => {
         let bagDelete = {
             cartItems: '',
@@ -200,6 +229,20 @@ const Bag = (props) => {
                     }}>
                         <Text style={{ fontWeight: 'bold', color: Color.btnColor }}>Login to see best coupon for you</Text>
                     </View>
+
+                </View>
+                <View style={{
+                    height: Vh * 0.1, width: Vw, alignItems: 'center',
+                    justifyContent: 'center', backgroundColor: Color.White, marginTop: 2
+                }}>
+                    <TouchableOpacity style={{
+                        backgroundColor: Color.btnColor, width: Vw * 0.5, height: Vh * 0.05,
+                        alignItems: 'center', justifyContent: 'center'
+                    }}
+                        onPress={() => makePayment()}>
+                        <Text style={{ color: Color.White, fontWeight: 'bold' }}>BUY NOW</Text>
+
+                    </TouchableOpacity>
 
                 </View>
             </View>

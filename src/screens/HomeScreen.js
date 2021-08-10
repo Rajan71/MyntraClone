@@ -13,10 +13,11 @@ import { Avatar } from 'react-native-elements';
 import { SwiperFlatList } from 'react-native-swiper-flatlist';
 import {
     List, avtarData,
-    colors,
-    beauty,
-    fashion,
-    excData,
+    SwipeList,
+    BeautyPersonel,
+    CategoriesBag,
+    ExcList,
+    AvtarRow
 } from '../components';
 import { TopPicksData } from '../assests/data/topPickData';
 
@@ -102,77 +103,6 @@ const HomeScreen = ({ navigation }) => {
 
 
 
-    const renderItem = ({ item, index }) => {
-        return <View style={styles.renStyle}>
-            <TouchableOpacity onPress={() => navigation.navigate(item.screen)}>
-                <Avatar
-                    rounded
-                    size='large'
-                    source={item.src}
-                />
-            </TouchableOpacity>
-            <Text style={{ color: Color.Black, marginTop: 5 }}>{item.title}</Text>
-
-        </View>
-    }
-
-    const beautyRender = ({ item, index }) => {
-        return <TouchableOpacity onPress={() => navigation.navigate(item.screen)}>
-            <View style={styles.renStyle}>
-                <ImageBackground source={item.src}
-                    style={{ height: Vh * 0.3, width: Vw * 0.7, alignItems: 'center', justifyContent: 'center' }}>
-
-                    <View style={{
-                        alignItems: 'center', justifyContent: 'center',
-                        position: 'absolute', bottom: 20
-                    }}>
-                        <Text style={{ color: Color.White, fontSize: 22, fontWeight: "bold" }}>{item.title}</Text>
-                        <Text style={{ color: Color.White, fontSize: 16, fontWeight: "bold" }}>{item.title2}</Text>
-                        {item.id == 14 || item.id == 16 || item.id == 18 ?
-
-                            <TouchableOpacity style={{
-                                backgroundColor: Color.White,
-                                height: Vw * 0.06,
-                                width: Vw * 0.23,
-                                borderRadius: 5,
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                marginTop: 5
-                            }}>
-                                <Text style={{ color: Color.Black, fontSize: 10, fontWeight: "bold" }}>{item.code}</Text>
-                            </TouchableOpacity> : null}
-                    </View>
-
-                </ImageBackground>
-
-            </View>
-        </TouchableOpacity>
-    }
-
-    const fashionRender = ({ item, index }) => {
-        return <View style={{ ...styles.renStyle, flex: 1 }}>
-            <Avatar
-                rounded
-                size={100}
-                source={item.src}
-
-            />
-
-            <Text style={{ color: Color.Black, marginTop: 5 }}>{item.title}</Text>
-
-        </View>
-    }
-
-    const activityRender = ({ item, index }) => {
-        return <View style={{ ...styles.renStyle, flex: 1 }}>
-            <ImageBackground source={item.src}
-                style={{ height: Vh * 0.18, width: Vw * 0.48, alignItems: 'center', justifyContent: 'center' }} >
-                <View style={{ position: 'absolute', bottom: 10 }}>
-                    <Text style={{ color: Color.White, marginTop: 5 }}>{item.title}</Text>
-                </View>
-            </ImageBackground>
-        </View>
-    }
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
@@ -187,20 +117,9 @@ const HomeScreen = ({ navigation }) => {
                     title1='Become'
                     title2='INSIDER' />
                 <View style={styles.listStyle}>
+                    <AvtarRow navigation={navigation} />
 
-                    <List
-                        horizontal
-                        contentContainerStyle={{ marginHorizontal: 10 }}
-                        data={avtarData}
-                        renderItem={renderItem}
-                        keyExtractor={item => item.id}
-                        ItemSeparatorComponent={() => {
-                            return (
-                                <View style={{ margin: 10 }}>
-                                </View>
-                            )
-                        }}
-                    />
+
                 </View>
                 <View>
                     <ScrollView>
@@ -237,25 +156,9 @@ const HomeScreen = ({ navigation }) => {
                             flex: 1, backgroundColor: 'white', marginTop: 15,
                             alignItems: 'center', justifyContent: 'center'
                         }}>
-                            <SwiperFlatList
-                                autoplay
-                                autoplayDelay={2}
-                                autoplayLoop
-                                index={2}
-                                //   showPagination
-                                data={colors}
-                                renderItem={({ item }) => (
-                                    <TouchableOpacity onPress={() => navigation.navigate(item.screen)}>
-                                        <View style={styles.swipeRen}>
-                                            <Image source={item.src}
-                                                style={{ height: Vh * 0.3, width: Vw }} />
 
-                                        </View>
-                                    </TouchableOpacity>
-
-                                )}
-                            />
-                            <AtSlide id={colors.id} />
+                            <SwipeList navigation={navigation} />
+                            <AtSlide />
 
                         </View>
                         <View style={{
@@ -308,34 +211,24 @@ const HomeScreen = ({ navigation }) => {
 
                         </View>
                         <View style={{
-                            width: Vw, backgroundColor: Color.White, marginTop: 15
+                            width: Vw, backgroundColor: Color.White, marginTop: 15, height: '22%'
                         }}>
                             <View style={{
                                 width: Vw, height: Vw * 0.1, justifyContent: 'center',
                                 alignItems: 'flex-start', paddingLeft: 10
                             }}
-                            ><Text style={{ color: Color.Black, fontSize: 15, marginTop: 20 }}>BEST OF BEAUTY & PERSONAL CARE</Text>
+                            ><Text style={{ color: Color.Black, fontSize: 15, marginTop: 10 }}>BEST OF BEAUTY & PERSONAL CARE</Text>
                             </View>
-                            <View style={{ height: Vh * 0.32, width: Vw, }}>
-                                <List
-                                    horizontal
-                                    data={beauty}
-                                    renderItem={beautyRender}
-                                    keyExtractor={item => item.id}
+                            <View style={{ height: '32%', width: Vw, }}>
 
-                                    ItemSeparatorComponent={() => {
-                                        return (
-                                            <View style={{ paddingRight: Vh * 0.01 }}>
-                                            </View>
-                                        )
-                                    }} />
+                                <BeautyPersonel navigation={navigation} />
 
                             </View>
-                            <TouchableOpacity>
+                            <TouchableOpacity >
                                 <ImageBackground
                                     source={require('../assests/images/common/fashion.jpg')}
                                     style={{
-                                        height: Vh * 0.4, width: Vw, marginTop: 5,
+                                        height: Vh * 0.45, width: Vw,
                                         alignItems: 'center', justifyContent: 'center'
                                     }}
                                     resizeMode='stretch'
@@ -344,52 +237,29 @@ const HomeScreen = ({ navigation }) => {
                                 </ImageBackground>
                             </TouchableOpacity>
                         </View>
-                        <View style={{ backgroundColor: Color.White, width: Vw, height: Vh * 0.67, marginTop: 15 }}>
+                        <View style={{ backgroundColor: Color.White, width: Vw, height: '24%', marginTop: 15 }}>
                             <View style={{
                                 width: Vw, height: Vw * 0.1, justifyContent: 'center',
                                 alignItems: 'flex-start', paddingLeft: 10
                             }}
                             ><Text style={{ color: Color.Black, fontSize: 15, }}>CATEGORIES TO BAG</Text>
                             </View>
-                            <List
-                                contentContainerStyle={{ paddingRight: 20 }}
-                                numColumns={3}
-                                data={fashion}
-                                renderItem={fashionRender}
-                                keyExtractor={item => item.id}
-                                showsHorizontalScrollIndicator={false}
-                                ItemSeparatorComponent={() => {
-                                    return (
-                                        <View style={{ margin: 10 }}>
-                                        </View>
-                                    )
-                                }} />
+
+                            <CategoriesBag navigation={navigation} />
                         </View>
-                        <View style={{ backgroundColor: Color.yellow, width: Vw, height: Vh * 0.6, marginTop: 15 }}>
+                        <View style={{ backgroundColor: Color.yellow, width: Vw, height: '35%', marginTop: 15 }}>
 
                             <View style={{
                                 width: Vw, height: Vw * 0.1, justifyContent: 'center',
                                 alignItems: 'flex-start', paddingLeft: 10, backgroundColor: Color.White
                             }}
-                            ><Text style={{ color: Color.Black, fontSize: 15, marginTop: 20 }}>STYLES FOR EVERY ACTIVITY</Text>
+                            ><Text style={{ color: Color.Black, fontSize: 15, marginTop: 10 }}>STYLES FOR EVERY ACTIVITY</Text>
                             </View>
 
-                            <List
-                                contentContainerStyle={{}}
-                                numColumns={2}
-                                data={excData}
-                                renderItem={activityRender}
-                                keyExtractor={item => item.id}
-                                showsHorizontalScrollIndicator={false}
-                                ItemSeparatorComponent={() => {
-                                    return (
-                                        <View style={{ margin: 5 }}>
-                                        </View>
-                                    )
-                                }}
-                            />
+                            <ExcList navigation={navigation} />
 
                         </View>
+                        <View style={{ backgroundColor: 'red', flex: 1 }}></View>
                     </ScrollView>
                 </View>
 
@@ -409,11 +279,12 @@ const styles = StyleSheet.create({
     renStyle: {
         alignItems: 'center',
         justifyContent: 'center',
-        height: Vh * 0.15
+        height: Vh * 0.16,
+        marginTop: 10
     },
     listStyle: {
         width: Vw,
-        height: Vh * 0.15,
+        height: '20%',
         backgroundColor: Color.White,
     },
     wlcTextStyle: {

@@ -26,6 +26,7 @@
     "react-native-image-crop-picker": "^0.36.2",
     "react-native-paper": "^4.9.2",
     "react-native-qrcode-scanner": "^1.5.4",
+    "react-native-razorpay": "^2.2.7",
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.4.0",

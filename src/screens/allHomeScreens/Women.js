@@ -12,7 +12,7 @@ import { SwiperFlatList } from 'react-native-swiper-flatlist';
 import { colors } from '../../components';
 import { AtSlide } from '../HomeScreen';
 import In from "react-native-vector-icons/AntDesign";
-import { List, fashion, Header } from '../../components';
+import { List, Header } from '../../components';
 import { Avatar } from 'react-native-elements';
 import { Arrivals, RoundImage, TitleBar } from './Men';
 
@@ -23,6 +23,20 @@ const wears = [
     { src: require('../../assests/images/womens/women4.jpg') },
     { src: require('../../assests/images/womens/women1.webp') },
 ];
+const fashion = [
+    { src: require('../../assests/images/common/men.jpg'), id: 19, title: 'MEN' },
+    { src: require('../../assests/images/common/girls.webp'), id: 20, title: 'WOMEN' },
+    { src: require('../../assests/images/common/kids.jpg'), id: 21, title: 'KIDS' },
+    { src: require('../../assests/images/common/beauty.webp'), id: 22, title: 'BEAUTY' },
+    { src: require('../../assests/images/common/home.jpg'), id: 23, title: 'HOME' },
+    { src: require('../../assests/images/common/footwear.jpg'), id: 24, title: 'FOOTWEAR' },
+    { src: require('../../assests/images/common/gadgets.jpg'), id: 25, title: 'GADGETS' },
+    { src: require('../../assests/images/common/jwel.jpg'), id: 26, title: 'JEWELLERY' },
+    { src: require('../../assests/images/common/jwel.jpg'), id: 27, title: 'JEWELLERY' },
+    { src: require('../../assests/images/common/kids.jpg'), id: 28, title: 'KIDS' },
+    { src: require('../../assests/images/common/beauty.webp'), id: 29, title: 'BEAUTY' },
+    { src: require('../../assests/images/common/home.jpg'), id: 30, title: 'HOME' }
+]
 
 const clothingData = [
     { title: 'Topwear', id: 1, },
@@ -207,7 +221,7 @@ const Women = (props) => {
 
                             )}
                         />
-                        <AtSlide id={colors.id} />
+                        <AtSlide />
                     </View>
                     <Tabs title='Clothing' />
                     <Tabs title='Footwear' />
@@ -248,7 +262,7 @@ const Women = (props) => {
                             }}
                         />
                     </View>
-                    <View style={{ height: Vh * 0.22, width: Vw, alignItems: 'center', backgroundColor: Color.White }}>
+                    <View style={{ height: '5%', width: Vw, alignItems: 'center', backgroundColor: Color.White }}>
                         <TitleBar name='OFFER CORNER' />
                         <View style={{
                             height: Vh * 0.14, width: Vw * 0.96, flexDirection: 'row',
@@ -268,7 +282,7 @@ const Women = (props) => {
                         </View>
 
                     </View>
-                    <View style={{ backgroundColor: Color.White, width: Vw, height: Vh * 0.7, }}>
+                    <View style={{ backgroundColor: Color.White, width: Vw, height: '17%', }}>
                         <TitleBar name='SPONSORED BRANDS' />
                         <List
                             contentContainerStyle={{ paddingRight: 20 }}

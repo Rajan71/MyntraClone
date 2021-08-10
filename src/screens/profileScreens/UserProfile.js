@@ -9,16 +9,15 @@ import {
 } from 'react-native';
 import { Color, Vw, Vh } from '../../helper';
 import In from "react-native-vector-icons/AntDesign";
-import { Strip, HeaderBar } from './Explore';
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import ImagePicker from 'react-native-image-crop-picker';
-
-
 import { Header } from '../../components';
 import { TextInput } from 'react-native-paper';
-
 import { useDispatch, useSelector } from "react-redux";
 import { saveProfile } from '../../redux/action/action';
+
+
+
+
 
 const UserProfile = (props) => {
     const [pic, setPic] = useState(null)
@@ -33,14 +32,20 @@ const UserProfile = (props) => {
     const dispatch = useDispatch()
 
     const saveProfilePic = () => {
-        let obj = {
-            imageUrl: pic
-        }
-        if (imageUrl = null) {
-            alert('Error try again')
-            console.log('image not found')
-        }
-        else { dispatch(saveProfile(obj)) }
+        try {
+            let obj = {
+                imageUrl: pic,
+                // name: name,
+                // email: email,
+                // number: number,
+                // hint: hint
+            }
+            if (pic == null) {
+                alert('Error try again')
+                console.log('image not found')
+            }
+            else { dispatch(saveProfile(obj)) }
+        } catch (error) { console.log(error) }
 
     }
 
@@ -67,7 +72,7 @@ const UserProfile = (props) => {
     }
 
     const Diloge = () => {
-        Alert.alert('Upload Story', 'Choose From',
+        Alert.alert('Choose From', '',
             [
                 {
                     text: 'Camera',
@@ -143,16 +148,17 @@ const UserProfile = (props) => {
                         <Text style={{ fontSize: 14, color: Color.btnColor, paddingRight: 15 }}>CHANGE</Text>
 
                     </View>
+
                     <Input
                         label='Full Name'
                         value={name}
-                        onChangeText={() => setName()}
+                        onChangeText={setName}
                         mode={'outlined'} />
 
                     <Input
                         label='Email'
                         value={email}
-                        onChangeText={() => setEmail()}
+                        onChangeText={setEmail}
                         mode={'outlined'}
                     />
                     <View style={{
